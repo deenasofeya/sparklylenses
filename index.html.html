@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pac-Man Strawberi</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome untuk Ikon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="game-container">
+        <!-- Tajuk & Skor -->
+        <header class="game-header">
+            <h1><i class="fa-solid fa-ghost"></i> PAC-MAN <span class="highlight">STRAWBERI</span></h1>
+            <div class="stats-board">
+                <div class="stat-box">
+                    <span class="label">SKOR</span>
+                    <span id="score">0</span>
+                </div>
+                <div class="stat-box">
+                    <span class="label">SKOR TINGGI</span>
+                    <span id="high-score">0</span>
+                </div>
+                <div class="stat-box">
+                    <span class="label">NYAWA</span>
+                    <div id="lives" class="lives-container">
+                        <span class="strawberry-life">🍓</span>
+                        <span class="strawberry-life">🍓</span>
+                        <span class="strawberry-life">🍓</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Kawasan Kanvas Permainan -->
+        <div class="canvas-wrapper">
+            <canvas id="gameCanvas" width="440" height="480"></canvas>
+            
+            <!-- Skrin Paparan Mula / Tamat / Menang -->
+            <div id="overlay" class="overlay">
+                <div class="overlay-content">
+                    <h2 id="overlay-title">PAC-MAN STRAWBERI</h2>
+                    <p id="overlay-msg">Makan semua strawberi & elakkan hantu!</p>
+                    <button id="start-btn" class="btn"><i class="fa-solid fa-play"></i> MULA MAIN</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Kawalan D-Pad untuk Peranti Mudah Alih (Mobile) -->
+        <div class="dpad-container">
+            <div class="dpad">
+                <button class="dpad-btn up" onclick="setDirection('UP')"><i class="fa-solid fa-caret-up"></i></button>
+                <button class="dpad-btn left" onclick="setDirection('LEFT')"><i class="fa-solid fa-caret-left"></i></button>
+                <button class="dpad-btn right" onclick="setDirection('RIGHT')"><i class="fa-solid fa-caret-right"></i></button>
+                <button class="dpad-btn down" onclick="setDirection('DOWN')"><i class="fa-solid fa-caret-down"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

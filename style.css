@@ -1,0 +1,194 @@
+:root {
+    --bg-color: #0b0f19;
+    --card-bg: #151c2e;
+    --accent-red: #ff3366;
+    --accent-yellow: #ffcc00;
+    --accent-blue: #00d2ff;
+    --text-color: #ffffff;
+    --radius: 16px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    user-select: none;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+}
+
+.game-container {
+    background-color: var(--card-bg);
+    border-radius: var(--radius);
+    padding: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), 0 0 15px rgba(255, 51, 102, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 480px;
+    width: 100%;
+}
+
+/* Tajuk Utama */
+.game-header {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.game-header h1 {
+    font-size: 1.5rem;
+    color: var(--accent-yellow);
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.game-header h1 .highlight {
+    color: var(--accent-red);
+}
+
+/* Papan Statistik */
+.stats-board {
+    display: flex;
+    justify-content: space-between;
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 10px 15px;
+    border-radius: 10px;
+    border: 1px solid #2a3550;
+}
+
+.stat-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.stat-box .label {
+    font-size: 0.65rem;
+    color: #8a99ad;
+    font-weight: bold;
+}
+
+.stat-box span:nth-child(2) {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.lives-container {
+    display: flex;
+    gap: 4px;
+    font-size: 1rem;
+}
+
+/* Bekas Kanvas Permainan */
+.canvas-wrapper {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 3px solid var(--accent-blue);
+    box-shadow: 0 0 15px rgba(0, 210, 255, 0.3);
+}
+
+canvas {
+    background-color: #000000;
+    display: block;
+}
+
+/* Overlay Paparan Mula / Mesej Keputusan */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(11, 15, 25, 0.92);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    transition: opacity 0.3s ease;
+}
+
+.overlay.hidden {
+    display: none;
+}
+
+.overlay-content h2 {
+    font-size: 1.8rem;
+    color: var(--accent-yellow);
+    margin-bottom: 10px;
+}
+
+.overlay-content p {
+    font-size: 0.95rem;
+    color: #a0aec0;
+    margin-bottom: 20px;
+}
+
+.btn {
+    background: linear-gradient(135deg, #ff3366, #e60039);
+    color: #fff;
+    border: none;
+    padding: 12px 28px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 30px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(255, 51, 102, 0.4);
+    transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(255, 51, 102, 0.6);
+}
+
+.btn:active {
+    transform: scale(0.98);
+}
+
+/* Kawalan Skrin Sentuh / D-Pad */
+.dpad-container {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+}
+
+.dpad {
+    display: grid;
+    grid-template-columns: repeat(3, 45px);
+    grid-template-rows: repeat(3, 45px);
+    gap: 5px;
+}
+
+.dpad-btn {
+    background-color: #222d45;
+    border: 1px solid #364669;
+    color: #fff;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dpad-btn:active {
+    background-color: var(--accent-blue);
+}
+
+.dpad-btn.up { grid-column: 2; grid-row: 1; }
+.dpad-btn.left { grid-column: 1; grid-row: 2; }
+.dpad-btn.right { grid-column: 3; grid-row: 2; }
+.dpad-btn.down { grid-column: 2; grid-row: 3; }
